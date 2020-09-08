@@ -69,9 +69,9 @@
 
         <!--数据库连接池-->
         <dependency>
-            <groupId>com.codelin</groupId>
-            <artifactId>client</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.23</version>
         </dependency>
 
 
