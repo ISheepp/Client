@@ -7,4 +7,9 @@
     <insert id="save" parameterType="User">
         INSERT INTO user values (#{id}, #{username}, #{password}, #{name}, #{phone}, #{job})
     </insert>
+
+    <!--登录-->
+    <select id="findByUsernameAndPassword" resultType="User">
+        select * from user where username=#{username} and password=#{password}
+    </select>
 </mapper>

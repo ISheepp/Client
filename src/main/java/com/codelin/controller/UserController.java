@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -20,5 +22,18 @@ public class UserController {
     public String register(User user){
         userService.register(user);
         return "redirect:/index";
+    }
+
+    //用户登录
+    @PostMapping("/login")
+    public String login(String username, String password, HttpSession session){
+        User user = userService.login(username, password);
+        if (user != null){
+            session.setAttribute("user",user);
+            return "redirect:success";
+        }
+        else {
+            return "redirect:index";
+        }
     }
 }

@@ -16,4 +16,9 @@ public class IndexController {
     public String toregister(){
         return "sign-up";
     }
+
+    @GetMapping("success")
+    public String tosuccess(){
+        return "indexto";
+    }
 }

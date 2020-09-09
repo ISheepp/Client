@@ -74,6 +74,13 @@
             <version>1.1.23</version>
         </dependency>
 
+        <!--糊涂-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.4.1</version>
+        </dependency>
+
 
     </dependencies>
 
