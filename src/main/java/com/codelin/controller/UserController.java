@@ -25,15 +25,15 @@ public class UserController {
     }
 
     //用户登录
-    @PostMapping("/login")
+    @RequestMapping("/login")
     public String login(String username, String password, HttpSession session){
         User user = userService.login(username, password);
         if (user != null){
             session.setAttribute("user",user);
-            return "redirect:success";
+            return "redirect:/success";
         }
         else {
-            return "redirect:index";
+            return "redirect:/index";
         }
     }
 }
