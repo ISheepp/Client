@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codelin.dao.ChanceDao">
+
+    <select id="findAll" resultType="Chance">
+        select * from chance;
+    </select>
+
+    <insert id="addChance" parameterType="Chance">
+        insert into chance (id, clientname, outline, person, phone, createperson, createtime, source, success)
+        VALUES (#{id}, #{clientname}, #{outline}, #{person}, #{phone}, #{createperson}, #{createtime}, #{source}, #{success})
+    </insert>
+
+</mapper>

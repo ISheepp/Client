@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
  
 <head>
     <!-- Required meta tags -->
@@ -27,7 +27,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="indexto.html" style="color: #000000">客户关系管理系统</a>
+                <a class="navbar-brand" th:href="@{/success}" style="color: #000000">客户关系管理系统</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -73,7 +73,7 @@
                                     <ul class="nav flex-column">
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="data-table.html">销售机会管理</a>
+                                            <a class="nav-link" th:href="@{/market/findAll}">销售机会管理</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="data-tables.html">客户开发计划</a>
@@ -184,7 +184,7 @@
                         <div class="page-header">
                             <h2 class="pageheader-title">销售机会管理</h2>
                             <div class="btn-group mr-2">
-                                <a href="add-chance.html"><button type="button" class="btn btn-sm btn-outline-dark">新增</button></a>
+                                <a th:href="@{/market/addchance}"><button type="button" class="btn btn-sm btn-outline-dark">新增</button></a>
                             </div>
                         </div>
                     </div>
@@ -214,42 +214,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>12</td>
-                                                <td>太阳药业</td>
-                                                <td>下个月的销售计划</td>
-                                                <td>李三</td>
-                                                <td>6725367123</td>
-                                                <td>2012-11-5 21:00:55</td>
+
+                                            <tr th:each="chance : ${chance}">
+                                                <td th:text="${chance.id}"></td>
+                                                <td th:text="${chance.clientname}"></td>
+                                                <td th:text="${chance.outline}"></td>
+                                                <td th:text="${chance.person}"></td>
+                                                <td th:text="${chance.phone}"></td>
+                                                <td th:text="${chance.createtime}"></td>
                                                 <td><a href="form-validation.html"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="#"><i class="far fa-times-circle"></i></a></td>
                                             </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>63</td>
-                                                <td>2011/07/25</td>
-                                                <td>$170,750</td>
-                                                <td><a href="#"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="#"><i class="far fa-times-circle"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>66</td>
-                                                <td>2009/01/12</td>
-                                                <td>$86,000</td>
-                                                <td><a href="#"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="#"><i class="far fa-times-circle"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cedric Kelly</td>
-                                                <td>Senior Javascript Developer</td>
-                                                <td>Edinburgh</td>
-                                                <td>22</td>
-                                                <td>2012/03/29</td>
-                                                <td>$433,060</td>
-                                                <td><a href="#"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="#"><i class="far fa-times-circle"></i></a></td>
-                                            </tr>
+
 
                                         </tbody>
                                         <tfoot>
