@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codelin.dao.ClientDao">
+
+    <select id="findAll" resultType="Client">
+        select * from client
+    </select>
+
+    <select id="findById" parameterType="int" resultType="Client">
+        select * from client where id = #{id}
+    </select>
+
+    <insert id="add" parameterType="Client">
+        insert into client (id, name, contribution, level, location, manager, phone)
+        VALUES (#{id}, #{name}, #{contribution}, #{level}, #{location}, #{manager}, #{phone})
+    </insert>
+
+    <delete id="delete" parameterType="int">
+        delete from client where id=#{id}
+    </delete>
+
+    <update id="update" parameterType="Client">
+        update client set
+        name=#{name}, contribution=#{contribution}, level=#{level}, location=#{location}, manager=#{manager}, phone=#{phone}
+        where id=#{id}
+    </update>
+
+</mapper>
