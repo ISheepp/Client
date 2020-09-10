@@ -12,4 +12,8 @@ public interface PlanService {
 
     List<Plan> findByClientName(String clientname);
 
+    void delete(int id);
+
+    void add(Plan plan);
+
 }

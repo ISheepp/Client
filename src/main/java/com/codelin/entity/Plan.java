@@ -18,6 +18,7 @@ import java.util.Date;
 @Accessors(chain = true)
 public class Plan {
 
+    private int id;
     private String clientname;
     private Date date;
     private String item;

@@ -180,6 +180,7 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
                             <h2 class="pageheader-title">制定计划</h2>
+                            <span th:text="${#httpServletRequest.getParameter('clientname')}"></span>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
 
                         </div>
@@ -211,7 +212,7 @@
                                             <td th:text="${chance.date}">12</td>
                                             <td th:text="${chance.item}">太阳药业</td>
 
-                                            <td>&nbsp;&nbsp;<a href="#"><i class="far fa-times-circle"></i></a></td>
+                                            <td>&nbsp;&nbsp;<a th:href="@{/plan/delete(id=${chance.id})}"><i class="far fa-times-circle"></i></a></td>
                                         </tr>
 
 
@@ -229,17 +230,24 @@
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <form id="validationform" data-parsley-validate="" novalidate="">
+                                            <form id="validationform" data-parsley-validate="" novalidate="" th:action="@{/plan/add}" method="post">
+                                                <div class="form-group row">
+                                                    <label class="col-12 col-sm-3 col-form-label text-sm-right">计划项</label>
+                                                    <div class="col-12 col-sm-8 col-lg-6">
+                                                        <span class="form-control" th:text="${#httpServletRequest.getParameter('clientname')}"></span>
+                                                        <input type="hidden"data-parsley-minlength="6" placeholder="Min 6 chars." class="form-control" th:value="${#httpServletRequest.getParameter('clientname')}" name="clientname">
+                                                    </div>
+                                                </div>
                                                 <div class="form-group row">
                                                     <label class="col-12 col-sm-3 col-form-label text-sm-right">日期</label>
                                                     <div class="col-12 col-sm-8 col-lg-6">
-                                                        <input type="text" required="" placeholder="Type something" class="form-control">
+                                                        <input type="datetime-local" required="" placeholder="Type something" class="form-control" name="date">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-12 col-sm-3 col-form-label text-sm-right">计划项</label>
                                                     <div class="col-12 col-sm-8 col-lg-6">
-                                                        <input type="text" required="" data-parsley-minlength="6" placeholder="Min 6 chars." class="form-control">
+                                                        <input type="text" required="" data-parsley-minlength="6" placeholder="Min 6 chars." class="form-control" name="item">
                                                     </div>
                                                 </div>
 

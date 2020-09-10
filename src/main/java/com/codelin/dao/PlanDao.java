@@ -13,4 +13,9 @@ public interface PlanDao {
     //根据clientname查询
     List<Plan> findByClientName(String clientname);
 
+    //删除
+    void delete(int id);
+
+    //添加
+    void add(Plan plan);
 }

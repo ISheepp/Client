@@ -10,4 +10,13 @@
         from plan where clientname = #{clientname};
     </select>
 
+    <delete id="delete" parameterType="int">
+        delete from plan where id = #{id}
+    </delete>
+
+    <insert id="add" parameterType="Plan">
+        insert into plan (clientname, date, item)
+        VALUES (#{clientname},#{date}, #{item})
+    </insert>
+
 </mapper>

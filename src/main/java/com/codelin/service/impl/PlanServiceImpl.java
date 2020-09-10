@@ -25,4 +25,14 @@ public class PlanServiceImpl implements PlanService {
     public List<Plan> findByClientName(String clientname) {
         return planDao.findByClientName(clientname);
     }
+
+    @Override
+    public void delete(int id) {
+        planDao.delete(id);
+    }
+
+    @Override
+    public void add(Plan plan) {
+        planDao.add(plan);
+    }
 }
