@@ -207,9 +207,9 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>12</td>
-                                            <td>太阳药业</td>
+                                        <tr th:each="chance : ${client}">
+                                            <td th:text="${chance.date}">12</td>
+                                            <td th:text="${chance.item}">太阳药业</td>
 
                                             <td>&nbsp;&nbsp;<a href="#"><i class="far fa-times-circle"></i></a></td>
                                         </tr>

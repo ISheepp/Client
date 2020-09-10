@@ -7,6 +7,9 @@ import org.apache.xerces.dom.ChildNode;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -32,10 +35,11 @@ public class HuTest {
 
     @Test
     public void StrToDate(){
-        Chance chance = new Chance();
-        String str = "12412341";
-        Date date = DateUtil.parse(str);
-        chance.setCreatetime(date);
-        System.out.println(chance.getCreatetime());
+        Date date = new Date();
+        Instant instant = date.toInstant();
+        ZoneId zoneId = ZoneId.systemDefault();
+        LocalDateTime localDateTime = instant.atZone(zoneId).toLocalDateTime();
+        System.out.println("Date = " + date);
+        System.out.println("LocalDateTime = " + localDateTime);
     }
 }

@@ -1,24 +1,23 @@
 package com.codelin.controller;
 
-import cn.hutool.core.date.DateUtil;
+
 import com.codelin.entity.Chance;
 import com.codelin.service.ChanceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.ServletRequestDataBinder;
-import org.springframework.web.bind.WebDataBinder;
+
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.context.request.WebRequest;
 
-import javax.jws.WebParam;
+
+
 import javax.servlet.http.HttpServletRequest;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -61,7 +60,7 @@ public class ChanceController {
         chance.setSuccess(request.getParameter("success"));
         String date = request.getParameter("createtime");
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime dateTime = LocalDateTime.parse(date.replaceAll("T", " ") + ":00", df);
+        LocalDateTime dateTime = LocalDateTime.parse(date.replaceAll("T", " ") + ":11", df);
         Date date1 = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
         chance.setCreatetime(date1);
         chanceService.addChance(chance);
@@ -78,8 +77,17 @@ public class ChanceController {
     //根据id查询
     @GetMapping("/find")
     public String find(int id, Model model){
+
         Chance newChance = chanceService.findById(id);
-        model.addAttribute("new", newChance);
+        Date date = newChance.getCreatetime();
+        Instant instant = date.toInstant();
+        ZoneId zoneId = ZoneId.systemDefault();
+        LocalDateTime localDateTime = instant.atZone(zoneId).toLocalDateTime();
+        String s = localDateTime.toString();
+        model.addAttribute("newChance", newChance);
+        model.addAttribute("newTime", s);
+        System.out.println(newChance);
+        System.out.println(s);
         return "/market/form-validation";
     }
 
@@ -99,11 +107,17 @@ public class ChanceController {
         chance.setSuccess(request.getParameter("success"));
         String date = request.getParameter("createtime");
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime dateTime = LocalDateTime.parse(date.replaceAll("T", " ") + ":00", df);
+        LocalDateTime dateTime = LocalDateTime.parse(date.replaceAll("T", " "), df);
         Date date1 = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
         chance.setCreatetime(date1);
         chanceService.update(chance);
         return "redirect:/market/findAll";
     }
 
+    @GetMapping("/all")
+    public String all(Model model){
+        List<Chance> list = chanceService.findAll();
+        model.addAttribute("plan", list);
+        return "market/data-tables";
+    }
 }

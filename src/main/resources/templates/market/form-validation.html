@@ -201,55 +201,56 @@
                                         <div class="form-group row">
                                             <label class="col-12 col-sm-3 col-form-label text-sm-right">编号</label>
                                             <div class="col-12 col-sm-8 col-lg-6">
-                                                <span class="form-control" th:text="${new.id}"></span>
+                                                <span class="form-control" th:text="${newChance.id}"></span>
+                                                <input type="hidden" class="form-control" name="id" th:value="${newChance.id}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-12 col-sm-3 col-form-label text-sm-right">客户名称</label>
                                             <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text" class="form-control" name="clientname" th:value="${new.clientname}">
+                                                <input type="text" class="form-control" name="clientname" th:value="${newChance.clientname}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-12 col-sm-3 col-form-label text-sm-right">概要</label>
                                             <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text" class="form-control" name="outline" th:value="${new.outline}">
+                                                <input type="text" class="form-control" name="outline" th:value="${newChance.outline}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-12 col-sm-3 col-form-label text-sm-right">联系人</label>
                                             <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text" class="form-control" name="person" th:value="${new.person}">
+                                                <input type="text" class="form-control" name="person" th:value="${newChance.person}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-12 col-sm-3 col-form-label text-sm-right">联系人电话</label>
                                             <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text" class="form-control" name="phone" th:value="${new.phone}">
+                                                <input type="text" class="form-control" name="phone" th:value="${newChance.phone}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-12 col-sm-3 col-form-label text-sm-right">创建人</label>
                                             <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text"  class="form-control" name="createperson" th:value="${new.createperson}">
+                                                <input type="text"  class="form-control" name="createperson" th:value="${newChance.createperson}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-12 col-sm-3 col-form-label text-sm-right">创建时间</label>
                                             <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="datetime-local" class="form-control" name="createtime" th:value="${new.createtime}">
+                                                <input type="datetime-local" class="form-control" name="createtime" th:value="${newTime}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-12 col-sm-3 col-form-label text-sm-right">机会来源</label>
                                             <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text" class="form-control" name="source" th:value="${new.source}">
+                                                <input type="text" class="form-control" name="source" th:value="${newChance.source}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-12 col-sm-3 col-form-label text-sm-right">成功机率(%)</label>
                                             <div class="col-sm-4 col-lg-3 mb-3 mb-sm-0">
-                                                <input id="pass2" type="text" class="form-control" name="success" th:value="${new.success}">
+                                                <input id="pass2" type="text" class="form-control" name="success" th:value="${newChance.success}">
                                             </div>
                                         </div>
 

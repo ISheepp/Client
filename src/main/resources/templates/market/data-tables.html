@@ -212,14 +212,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>12</td>
-                                                <td>太阳药业</td>
-                                                <td>下个月的销售计划</td>
-                                                <td>李三</td>
-                                                <td>6725367123</td>
-                                                <td>2012-11-5 21:00:55</td>
-                                                <td><a href="zhidingjihua.html">制定计划</a>
+                                            <tr th:each="chance : ${plan}">
+                                                <td th:text="${chance.id}">12</td>
+                                                <td th:text="${chance.clientname}">太阳药业</td>
+                                                <td th:text="${chance.outline}">下个月的销售计划</td>
+                                                <td th:text="${chance.person}">李三</td>
+                                                <td th:text="${chance.phone}">6725367123</td>
+                                                <td th:text="${chance.createtime}">2012-11-5 21:00:55</td>
+                                                <td><a th:href="@{/plan/findAll(clientname=${chance.clientname})}">制定计划</a>
                                             </tr>
 
 
