@@ -10,4 +10,10 @@ public interface ChanceService {
     List<Chance> findAll();
 
     void addChance(Chance chance);
+
+    void deleteChance(int id);
+
+    Chance findById(int id);
+
+    void update(Chance chance);
 }

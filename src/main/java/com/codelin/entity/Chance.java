@@ -18,7 +18,6 @@ public class Chance {
     private String outline;
     private String person;
     private String phone;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String createperson;
     private Date createtime;
     private String source;

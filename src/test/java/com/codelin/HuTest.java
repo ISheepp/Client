@@ -19,9 +19,9 @@ public class HuTest {
     public void testHutool(){
         //当前时间
         Date date = DateUtil.date();
-//当前时间
+        //当前时间
         Date date2 = DateUtil.date(Calendar.getInstance());
-//当前时间
+        //当前时间
         Date date3 = DateUtil.date(System.currentTimeMillis());
         String now = DateUtil.now();
         System.out.println(now);

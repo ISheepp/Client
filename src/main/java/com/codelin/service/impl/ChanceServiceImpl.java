@@ -30,4 +30,19 @@ public class ChanceServiceImpl implements ChanceService {
 
         chanceDao.addChance(chance);
     }
+
+    @Override
+    public void deleteChance(int id) {
+        chanceDao.deleteChance(id);
+    }
+
+    @Override
+    public Chance findById(int id) {
+        return chanceDao.findById(id);
+    }
+
+    @Override
+    public void update(Chance chance) {
+        chanceDao.update(chance);
+    }
 }
