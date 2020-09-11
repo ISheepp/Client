@@ -209,21 +209,13 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>12</td>
-                                        <td>admin</td>
-                                        <td>林子洋</td>
-                                        <td>17326071111</td>
-                                        <td>高管</td>
-                                        <td><a href="#"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="#"><i class="far fa-times-circle"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>12</td>
-                                        <td>admin</td>
-                                        <td>林子洋</td>
-                                        <td>17326071111</td>
-                                        <td>高管</td>
-                                        <td><a href="#"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="#"><i class="far fa-times-circle"></i></a></td>
+                                    <tr th:each="list : ${list}">
+                                        <td th:text="${list.id}">12</td>
+                                        <td th:text="${list.username}">admin</td>
+                                        <td th:text="${list.name}">林子洋</td>
+                                        <td th:text="${list.phone}">17326071111</td>
+                                        <td th:text="${list.job}">高管</td>
+                                        <td><a th:href="@{/user/findById(id=${list.id})}"><i class="far fa-edit"></i></a></td>
                                     </tr>
 
                                     </tbody>

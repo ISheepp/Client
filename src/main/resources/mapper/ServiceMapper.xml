@@ -5,13 +5,11 @@
 <!--命名空间定义-->
 <mapper namespace="com.codelin.dao.NewserviceDao">
 
-    <insert id="add" parameterType="Newservice">
-        insert into newservice(id, clientname, type, outline, status, createperson, createtime, request, dealperson)
-        VALUES(id=#{id}, clientname=#{clientname}, type=#{type}, outline=#{outline}, status=#{status}, createperson=#{createperson}, createtime=#{createtime}, request=#{request}, dealperson=#{dealperson})
-    </insert>
-
     <select id="findAll" resultType="Newservice">
         select * from newservice
     </select>
 
+    <insert id="add" parameterType="Newservice">
+        INSERT INTO `client`.`newservice` (`id`, `clientname`, `type`, `outline`, `status`, `createperson`, `createtime`, `request`, `dealperson`) VALUES (id=#{id}, clientname=#{clientname}, type=#{type}, outline=#{outline}, status=#{status}, createperson=#{createperson}, createtime=#{createtime}, request=#{request}, dealperson=#{dealperson});
+    </insert>
 </mapper>
