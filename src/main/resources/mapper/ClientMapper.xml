@@ -27,4 +27,24 @@
         where id=#{id}
     </update>
 
+    <select id="find1" resultType="int">
+        SELECT COUNT(level) AS nums FROM client
+        WHERE client.client.level="重点开发对象"
+    </select>
+
+    <select id="find2" resultType="int">
+        SELECT COUNT(level) AS nums FROM client
+        WHERE client.client.level="大客户"
+    </select>
+
+    <select id="find3" resultType="int">
+        SELECT COUNT(level) AS nums FROM client
+        WHERE client.client.level="小客户"
+    </select>
+
+    <select id="find4" resultType="int">
+        SELECT COUNT(level) AS nums FROM client
+        WHERE client.client.level="超级大客户"
+    </select>
+
 </mapper>

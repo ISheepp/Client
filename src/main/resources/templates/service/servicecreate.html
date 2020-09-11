@@ -197,53 +197,62 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form id="validationform" data-parsley-validate="" novalidate="">
+                            <form id="validationform" th:action="@{/server/add}" method="post">
                                 <div class="form-group row">
                                     <label class="col-12 col-sm-3 col-form-label text-sm-right">客户编号</label>
                                     <div class="col-12 col-sm-8 col-lg-6">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="id">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-12 col-sm-3 col-form-label text-sm-right">客户名称</label>
+                                    <div class="col-12 col-sm-8 col-lg-6">
+                                        <input type="text" class="form-control" name="clientname">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-12 col-sm-3 col-form-label text-sm-right">服务类型</label>
                                     <div class="col-12 col-sm-8 col-lg-6">
-                                        <select class="form-control">
-                                            <option>咨询</option>
-                                            <option>电话</option>
+                                        <select class="form-control" name="type">
+                                            <option value="咨询">咨询</option>
+                                            <option value="电话">电话</option>
+                                            <option value="投诉">投诉</option>
+                                            <option value="威胁">威胁</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-12 col-sm-3 col-form-label text-sm-right">概要</label>
                                     <div class="col-12 col-sm-8 col-lg-6">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="outline">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-12 col-sm-3 col-form-label text-sm-right">状态</label>
                                     <div class="col-12 col-sm-8 col-lg-6">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="status" value="新建">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-12 col-sm-3 col-form-label text-sm-right">服务请求</label>
                                     <div class="col-12 col-sm-8 col-lg-6">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="request">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-12 col-sm-3 col-form-label text-sm-right">创建人</label>
                                     <div class="col-12 col-sm-8 col-lg-6">
-                                        <input type="text"  class="form-control">
+                                        <input type="text"  class="form-control" th:value="${session.user.name}" name="createperson">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-12 col-sm-3 col-form-label text-sm-right">创建时间</label>
                                     <div class="col-12 col-sm-8 col-lg-6">
-                                        <input type="number" class="form-control">
+                                        <input type="datetime-local" class="form-control" name="createtime">
                                     </div>
                                 </div>
+                                <input type="hidden" value="无" name="dealperson">
 
 
                                 <div class="form-group row text-right">

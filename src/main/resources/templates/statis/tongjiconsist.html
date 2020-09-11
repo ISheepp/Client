@@ -212,36 +212,31 @@
                                     <tr>
                                         <td>1</td>
                                         <td>重点开发对象</td>
-                                        <td>2</td>
+                                        <td th:text="${i}">2</td>
 
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td>战略合作伙伴</td>
-                                        <td>2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>合作伙伴</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
                                         <td>大客户</td>
-                                        <td>4</td>
+                                        <td th:text="${j}">2</td>
                                     </tr>
                                     <tr>
-                                        <td>5</td>
-                                        <td>普通客户</td>
-                                        <td>7</td>
+                                        <td>3</td>
+                                        <td>小客户</td>
+                                        <td th:text="${k}">3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>超级大客户</td>
+                                        <td th:text="${l}">4</td>
                                     </tr>
 
                                     </tbody>
                                     <tfoot>
                                     <tr>
                                         <th>编号</th>
-                                        <th>客户名称</th>
-                                        <th>订单金额</th>
+                                        <th>等级</th>
+                                        <th>数量</th>
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -249,7 +244,7 @@
 <!--pie charts-->
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="margin: 30px 0px 0px 250px">
                                 <div class="card">
-                                    <h5 class="card-header">Pie Charts</h5>
+                                    <h5 class="card-header">Charts</h5>
                                     <div class="card-body">
                                         <canvas id="chartjs_pie" ></canvas>
                                     </div>
@@ -318,10 +313,14 @@
 
 <script>
     var ctx = document.getElementById("chartjs_pie").getContext('2d');
+    var i = [[${i}]];
+    var j = [[${j}]];
+    var k = [[${k}]];
+    var l = [[${l}]];
     var myChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: ["重点开发对象", "战略合作伙伴", "合作伙伴", "大客户", "普通客户"],
+            labels: ["重点开发对象", "大客户", "小客户", "超级大客户"],
             datasets: [{
                 backgroundColor: [
                     "#5969ff",
@@ -330,7 +329,7 @@
                     "#ffc750",
                     "#2ec551"
                 ],
-                data: [12, 19, 3, 17, 28]
+                data: [i, j, k, l]
             }]
         },
         options: {

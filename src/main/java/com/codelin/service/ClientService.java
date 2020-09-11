@@ -16,4 +16,13 @@ public interface ClientService {
 
     void update(Client client);
 
+    int find1();
+
+    int find2();
+
+    int find3();
+
+    int find4();
+
+
 }

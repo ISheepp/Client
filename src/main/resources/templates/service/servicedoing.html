@@ -212,13 +212,13 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>12</td>
-                                        <td>太阳药业</td>
-                                        <td>下个月的销售计划</td>
-                                        <td>已分配</td>
-                                        <td>维修</td>
-                                        <td>2012-11-5 21:00:55</td>
+                                    <tr th:each="list : ${list}">
+                                        <td th:text="${list.id}">12</td>
+                                        <td th:text="${list.clientname}">太阳药业</td>
+                                        <td th:text="${list.outline}">下个月的销售计划</td>
+                                        <td th:text="${list.status}">已分配</td>
+                                        <td th:text="${list.type}">维修</td>
+                                        <td th:text="${list.createtime}">2012-11-5 21:00:55</td>
                                         <td>&nbsp;&nbsp;<a href="#"><i class=" fas fa-cut"></i></a></td>
                                     </tr>
                                     <tr>

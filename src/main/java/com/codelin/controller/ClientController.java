@@ -62,4 +62,17 @@ public class ClientController {
         return "redirect:/client/findAll";
     }
 
+    @GetMapping("/consist")
+    public String consist(Model model){
+        int i = clientService.find1();
+        int j = clientService.find2();
+        int k = clientService.find3();
+        int l = clientService.find4();
+        model.addAttribute("i",i);
+        model.addAttribute("j",j);
+        model.addAttribute("k",k);
+        model.addAttribute("l",l);
+        return "/statis/tongjiconsist";
+    }
+
 }

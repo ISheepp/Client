@@ -41,4 +41,24 @@ public class ClientServiceImpl implements ClientService {
     public void update(Client client) {
         clientDao.update(client);
     }
+
+    @Override
+    public int find1() {
+        return clientDao.find1();
+    }
+
+    @Override
+    public int find2() {
+        return clientDao.find2();
+    }
+
+    @Override
+    public int find3() {
+        return clientDao.find3();
+    }
+
+    @Override
+    public int find4() {
+        return clientDao.find4();
+    }
 }

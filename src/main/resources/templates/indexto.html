@@ -100,10 +100,10 @@
                             <div id="submenu-4" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="service/servicecreate.html">服务创建</a>
+                                        <a class="nav-link" th:href="@{/server/toadd}">服务创建</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="service/servicepush.html">服务分配</a>
+                                        <a class="nav-link" th:href="@{/server/findAll}">服务分配</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="service/servicedoing.html">服务处理</a>
@@ -124,7 +124,7 @@
                                         <a class="nav-link" href="statis/tongji.html">客户贡献分析</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="statis/tongjiconsist.html">客户构成分析</a>
+                                        <a class="nav-link" th:href="@{/client/consist}">客户构成分析</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="statis/tongjiservice.html">客户服务分析</a>

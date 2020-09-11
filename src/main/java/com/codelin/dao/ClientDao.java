@@ -16,4 +16,13 @@ public interface ClientDao {
 
     void update(Client client);
 
+    //根据级别查询
+    int find1();
+
+    int find2();
+
+    int find3();
+
+    int find4();
+
 }
