@@ -106,11 +106,11 @@
                                         <a class="nav-link" th:href="@{/server/findAll}">服务分配</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="service/servicedoing.html">服务处理</a>
+                                        <a class="nav-link" th:href="@{/server/doing}">服务处理</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="service/servicedone.html">服务归档</a>
+                                        <a class="nav-link" th:href="@{/server/done}">服务归档</a>
                                     </li>
                                 </ul>
                             </div>
@@ -121,35 +121,20 @@
                             <div id="submenu-5" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="statis/tongji.html">客户贡献分析</a>
+                                        <a class="nav-link" th:href="@{/client/contribution}">客户贡献分析</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" th:href="@{/client/consist}">客户构成分析</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="statis/tongjiservice.html">客户服务分析</a>
+                                        <a class="nav-link" th:href="@{/server/consist}">客户服务分析</a>
                                     </li>
 
                                 </ul>
                             </div>
                         </li>
                         <!--基础数据-->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>基础数据</a>
-                            <div id="submenu-6" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">数据字典管理</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">查询产品信息</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">查询库存</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+
                         <!--权限管理-->
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>权限管理<span class="badge badge-secondary">权限管理</span></a>

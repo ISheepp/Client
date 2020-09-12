@@ -41,7 +41,7 @@
 
 
                     <li class="nav-item dropdown nav-user">
-                        <a class="dropdown-item" style="margin-top: 10px" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                        <a class="dropdown-item" style="margin-top: 10px" th:href="@{/index}"><i class="fas fa-power-off mr-2"></i>Logout</a>
                     </li>
                 </ul>
             </div>
@@ -73,10 +73,10 @@
                                 <ul class="nav flex-column">
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../market/data-table.html">销售机会管理</a>
+                                        <a class="nav-link" th:href="@{/market/findAll}">销售机会管理</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../market/data-tables.html">客户开发计划</a>
+                                        <a class="nav-link" th:href="@{/market/all}">客户开发计划</a>
                                     </li>
 
                                 </ul>
@@ -88,7 +88,7 @@
                             <div id="submenu-3" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../client/clientInfo.html">客户信息管理</a>
+                                        <a class="nav-link" th:href="@{/client/findAll}">客户信息管理</a>
 
 
                                 </ul>
@@ -100,17 +100,17 @@
                             <div id="submenu-4" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../service/servicecreate.html">服务创建</a>
+                                        <a class="nav-link" th:href="@{/server/toadd}">服务创建</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../service/servicepush.html">服务分配</a>
+                                        <a class="nav-link" th:href="@{/server/findAll}">服务分配</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../service/servicedoing.html">服务处理</a>
+                                        <a class="nav-link" th:href="@{/server/doing}">服务处理</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../service/servicedone.html">服务归档</a>
+                                        <a class="nav-link" th:href="@{/server/done}">服务归档</a>
                                     </li>
                                 </ul>
                             </div>
@@ -121,42 +121,27 @@
                             <div id="submenu-5" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../statis/tongji.html">客户贡献分析</a>
+                                        <a class="nav-link" th:href="@{/client/contribution}">客户贡献分析</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../statis/tongjiconsist.html">客户构成分析</a>
+                                        <a class="nav-link" th:href="@{/client/consist}">客户构成分析</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../statis/tongjiservice.html">客户服务分析</a>
+                                        <a class="nav-link" th:href="@{/server/consist}">客户服务分析</a>
                                     </li>
 
                                 </ul>
                             </div>
                         </li>
                         <!--基础数据-->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-fw fa-file"></i>基础数据</a>
-                            <div id="submenu-6" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">数据字典管理</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">查询产品信息</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">查询库存</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+
                         <!--权限管理-->
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fas fa-fw fa-inbox"></i>权限管理<span class="badge badge-secondary">权限管理</span></a>
                             <div id="submenu-7" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../users/userlist.html">用户管理</a>
+                                        <a class="nav-link" th:href="@{/user/findAll}">用户管理</a>
                                     </li>
 
 
@@ -213,6 +198,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+
                                     <tr th:each="list : ${list}">
                                         <td th:text="${list.id}">12</td>
                                         <td th:text="${list.clientname}">大白兔奶糖集团</td>
@@ -221,12 +207,14 @@
                                         <td th:text="${list.request}">以旧换新</td>
                                         <td th:text="${list.createperson}">lzy</td>
                                         <td th:text="${list.createtime}">2011/07/25</td>
-
+                                        <form th:action="@{/server/update(id=${list.id})}" method="post">
                                         <td><select class="form-control-sm">
                                             <option>张经理</option>
                                             <option>林经理</option>
-                                        </select><button type="submit" class="btn btn-sm btn-rounded btn-primary">确定</button> </td>
-                                        <td>&nbsp;&nbsp;<a href="#"><i class="far fa-times-circle"></i></a></td>
+                                        </select><button type="submit" class="btn btn-sm btn-rounded btn-primary">确定</button>
+                                        </td>
+                                        </form>
+                                        <td>&nbsp;&nbsp;<a th:href="@{/server/delete(id=${list.id})}"><i class="far fa-times-circle"></i></a></td>
                                     </tr>
 
 
@@ -236,9 +224,11 @@
                                         <th>编号</th>
                                         <th>客户名称</th>
                                         <th>概要</th>
-                                        <th>联系人</th>
-                                        <th>联系人电话</th>
-                                        <th>创建时间</th>
+                                        <th>服务类型</th>
+                                        <th>服务请求</th>
+                                        <th>创建人</th>
+                                        <th>创建日期</th>
+                                        <th>分配给</th>
                                         <th>操作</th>
                                     </tr>
                                     </tfoot>

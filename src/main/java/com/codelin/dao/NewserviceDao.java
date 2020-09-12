@@ -14,4 +14,22 @@ public interface NewserviceDao {
 
     List<Newservice> findAll();
 
+    void update(int id);
+
+    void delete(int id);
+
+    List<Newservice> findByStatus();
+
+    void archive(int id);
+
+    List<Newservice> done();
+
+    //根据服务类型查询
+    int find1();
+
+    int find2();
+
+    int find3();
+
+    int find4();
 }

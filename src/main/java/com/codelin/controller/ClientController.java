@@ -75,4 +75,10 @@ public class ClientController {
         return "/statis/tongjiconsist";
     }
 
+    @GetMapping("/contribution")
+    public String contribution(Model model){
+        List<Client> list = clientService.findAll();
+        model.addAttribute("list", list);
+        return "/statis/tongji";
+    }
 }

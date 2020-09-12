@@ -61,4 +61,49 @@ public class NewserviceController {
         return "/service/servicepush";
     }
 
+    @GetMapping("/consist")
+    public String consist(Model model){
+        int i = newserviceService.find1();
+        int j = newserviceService.find2();
+        int k = newserviceService.find3();
+        int l = newserviceService.find4();
+        model.addAttribute("i",i);
+        model.addAttribute("j",j);
+        model.addAttribute("k",k);
+        model.addAttribute("l",l);
+        return "/statis/tongjiservice";
+    }
+
+    @PostMapping("/update")
+    public String update(int id){
+        newserviceService.update(id);
+        return "redirect:/server/findAll";
+    }
+
+    @GetMapping("/delete")
+    public String delete(int id){
+        newserviceService.delete(id);
+        return "redirect:/server/findAll";
+    }
+
+    @GetMapping("/doing")
+    public String doing(Model model){
+        List<Newservice> list = newserviceService.findByStatus();
+        model.addAttribute("list", list);
+        return "/service/servicedoing";
+    }
+
+    @GetMapping("/archive")
+    public String archive(int id){
+        newserviceService.archive(id);
+        return "redirect:/server/doing";
+    }
+
+    @GetMapping("/done")
+    public String done(Model model){
+        List<Newservice> list = newserviceService.done();
+        model.addAttribute("list", list);
+        return "/service/servicedone";
+    }
+
 }

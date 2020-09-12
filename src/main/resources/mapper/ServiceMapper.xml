@@ -6,10 +6,52 @@
 <mapper namespace="com.codelin.dao.NewserviceDao">
 
     <select id="findAll" resultType="Newservice">
-        select * from newservice
+        select * from newservice where status="新建"
     </select>
 
     <insert id="add" parameterType="Newservice">
         INSERT INTO `client`.`newservice` (`id`, `clientname`, `type`, `outline`, `status`, `createperson`, `createtime`, `request`, `dealperson`) VALUES (id=#{id}, clientname=#{clientname}, type=#{type}, outline=#{outline}, status=#{status}, createperson=#{createperson}, createtime=#{createtime}, request=#{request}, dealperson=#{dealperson});
     </insert>
+
+    <update id="update" parameterType="int">
+        update newservice set status="已分配" where id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from newservice where id=#{id}
+    </delete>
+
+    <select id="findByStatus" resultType="Newservice">
+        select * from newservice where status="已分配"
+    </select>
+
+    <update id="archive" parameterType="int">
+        update newservice set status="已归档" where id=#{id}
+    </update>
+
+    <select id="done" resultType="Newservice">
+        select * from newservice where status="已归档"
+    </select>
+
+<!--    -->
+
+    <select id="find1" resultType="int">
+        SELECT COUNT(type) AS nums FROM newservice
+        WHERE client.newservice.type="咨询"
+    </select>
+
+    <select id="find2" resultType="int">
+        SELECT COUNT(type) AS nums FROM newservice
+        WHERE client.newservice.type="电话"
+    </select>
+
+    <select id="find3" resultType="int">
+        SELECT COUNT(type) AS nums FROM newservice
+        WHERE client.newservice.type="投诉"
+    </select>
+
+    <select id="find4" resultType="int">
+        SELECT COUNT(type) AS nums FROM newservice
+        WHERE client.newservice.type="威胁"
+    </select>
 </mapper>

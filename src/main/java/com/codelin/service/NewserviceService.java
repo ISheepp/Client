@@ -14,4 +14,21 @@ public interface NewserviceService {
 
     List<Newservice> findAll();
 
+    void update(int id);
+
+    void delete(int id);
+
+    List<Newservice> findByStatus();
+
+    List<Newservice> done();
+
+    void archive(int id);
+
+    int find1();
+
+    int find2();
+
+    int find3();
+
+    int find4();
 }

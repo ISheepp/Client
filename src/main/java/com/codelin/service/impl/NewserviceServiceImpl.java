@@ -29,4 +29,49 @@ public class NewserviceServiceImpl implements NewserviceService {
     public List<Newservice> findAll() {
         return newserviceDao.findAll();
     }
+
+    @Override
+    public void update(int id) {
+        newserviceDao.update(id);
+    }
+
+    @Override
+    public void delete(int id) {
+        newserviceDao.delete(id);
+    }
+
+    @Override
+    public List<Newservice> findByStatus() {
+        return newserviceDao.findByStatus();
+    }
+
+    @Override
+    public void archive(int id) {
+        newserviceDao.archive(id);
+    }
+
+    @Override
+    public List<Newservice> done() {
+        return newserviceDao.done();
+    }
+
+    @Override
+    public int find1() {
+        return newserviceDao.find1();
+    }
+
+    @Override
+    public int find2() {
+        return newserviceDao.find2();
+    }
+
+    @Override
+    public int find3() {
+        return newserviceDao.find3();
+    }
+
+    @Override
+    public int find4() {
+        return newserviceDao.find4();
+    }
 }
