@@ -2,7 +2,6 @@ package com.codelin.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class IndexController {
@@ -17,7 +16,7 @@ public class IndexController {
         return "sign-up";
     }
 
-    @GetMapping("success")
+    @GetMapping("/success")
     public String tosuccess(){
         return "indexto";
     }
