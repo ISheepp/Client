@@ -17,12 +17,13 @@
         delete from chance where id=#{id}
     </delete>
 
-<!--    根据id查询-->
+<!--根据id查询-->
     <select id="findById" parameterType="int" resultType="Chance">
         select * from chance where id=#{id}
     </select>
 
-<!--    更新信息-->
+<!--更新信息-->
+    
     <update id="update" parameterType="Chance">
         update chance set  clientname=#{clientname}, outline=#{outline}, person=#{person}, phone=#{phone}, createperson=#{createperson}, createtime=#{createtime}, source=#{source}, success=#{success} where id=#{id}
     </update>

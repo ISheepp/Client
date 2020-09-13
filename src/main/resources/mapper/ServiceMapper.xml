@@ -10,7 +10,8 @@
     </select>
 
     <insert id="add" parameterType="Newservice">
-        INSERT INTO `client`.`newservice` (`id`, `clientname`, `type`, `outline`, `status`, `createperson`, `createtime`, `request`, `dealperson`) VALUES (id=#{id}, clientname=#{clientname}, type=#{type}, outline=#{outline}, status=#{status}, createperson=#{createperson}, createtime=#{createtime}, request=#{request}, dealperson=#{dealperson});
+        INSERT INTO `client`.`newservice` (`id`, `clientname`, `type`, `outline`, `status`, `createperson`, `createtime`, `request`, `dealperson`)
+        VALUES (#{id}, #{clientname}, #{type}, #{outline}, #{status}, #{createperson}, #{createtime}, #{request}, #{dealperson});
     </insert>
 
     <update id="update" parameterType="int">
